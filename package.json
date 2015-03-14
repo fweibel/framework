@@ -19,7 +19,8 @@
 		"socket.io": "1.0.6",
 		"arangojs": "3.0.0",
         "debug": "~0.7.4",
-        "jade": "*"
+        "jade": "*",
+		"ejs":">= 0.0.1"
     },
 	"engines": {
 		"node": "0.6.x"
