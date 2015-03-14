@@ -1,10 +1,8 @@
-var frmw = require( "./framework" );
+var debug = require('debug')('my-application');
+var app = require('./app');
 
-/* frmw.login( "fab", "nope", function( err, data ){
-	
-	var newUser = new frmw.user( data );
-	newUser.log();
-	frmw.users.push( newUser );
-	
-} ); */
+app.set('port', process.env.PORT || 3000);
 
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
