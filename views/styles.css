@@ -1,0 +1,84 @@
+/* GLOBAL CSS */
+
+*{
+    box-sizing: border-box;
+    font-family: 'Verdana'
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+h1 {
+    color: orange;
+    text-align: center;
+}
+
+
+/* TASK / CARD */
+
+.card{
+    background-color: #FFF;
+    position: relative;
+    width: 350px;
+    min-height: 150px;
+    max-height: 500px;
+    padding: 5px;
+    margin: 10px;
+    border-bottom: thick solid #ffa600;
+}
+
+.title{
+	background: transparent;
+    border: none;
+	font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 7px;
+    
+}
+
+.description{
+    height: 100px;
+    font-weight: normal;
+    vertical-align: text-top;
+    outline: none;
+}
+
+    /* BUTTONS */
+
+.upload{
+    margin-top: 10px;
+    margin-bottom: 10px;  
+}
+
+.button{
+    cursor: pointer;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    height: 33px;
+    width: 33px;
+    margin:2px;
+}
+
+.submit{
+    background-image: url("img/submit.png");
+}
+
+.delete{
+    background-image: url("img/delete.png");
+}
+
+.valid{
+    background-image: url("img/valid.png");
+    position:absolute;
+    height: 100%;
+    width: 75px;
+    top:0;
+    right:-80px;
+}

@@ -13,6 +13,12 @@ frmw.db.collection( "users", function( err, coll ){
 	else
 		frmw.db.users = coll;
 } );
+frmw.db.collection( "tasks", function( err, coll ){
+	if( err )
+		console.log( "Tasks collection is unreachable" );
+	else
+		frmw.db.tasks = coll;
+} );
 
 frmw.login = function( mail, pass, callback ) {
 	

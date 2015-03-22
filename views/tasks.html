@@ -5,20 +5,33 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/png" href="/favicon/favicon.png" />
+    <script src="jquery.min.js"></script>
+    <script src="client.js"></script>
 	<!--[if IE]><link rel="shortcut icon" type="image/x-icon" href="/favicon/favicon.ico" /><![endif]-->
 	<title>Welcome to the Framework / Early alpha</title>
 </head>
 
 <body>
+
+	<div id="taskslist">
 	
-	<form method="POST" action="http://localhost:8080/users/1234/tasks" enctype="multipart/form-data">
-		
-		<input name="title" placeholder="task title" />
-		<input name="description" placeholder="task description" />
-		<input type="file" name="image">
-		<input type="submit" value="submit">
-		
-	</form>
+		<div class="card">
+		   <form method="POST" action="/api/tasks" enctype="multipart/form-data">
+				<div>
+					<input name="title" class="title" placeholder="Title" class="h1" />
+				</div>
+				<div>
+					<textarea name="description" class="title description" style="resize:vertical"></textarea>
+				</div>
+				<div>
+					<input type="file" name="image" class="upload" >
+				</div>
+				<div>
+                    <button type="submit" value="Submit" class="button submit"></button>
+				</div>
+				</form>
+		</div>
+	 </div>
 	
 </body>
 

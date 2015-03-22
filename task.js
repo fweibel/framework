@@ -17,7 +17,13 @@ task.prototype = {
 	
 	save: function() {
 		
-		console.log( this );
+		if( this.title == "" && this.description == "" ) return this;
+		
+		frmw.db.tasks.save( this, function( err, doc ) {
+			
+			this.id = doc._key;
+			
+		} );
 		
 		return this;
 		

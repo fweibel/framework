@@ -2,12 +2,18 @@ var frmw = require( '../framework' );
 var express = require( 'express' );
 var router = express.Router();
 
-
 /* GET users listing. */
 router.get( '/', function( req, res ) {
 	
-	var data = frmw.db.users;
-	res.json( data );
+	frmw.db.query( "FOR u IN tasks RETURN u", function( err, cursor ) {
+		
+		if( err ) return res.render( "error.html" );
+		
+		
+		
+		res.json( cursor._result )
+
+	});
 	
 });
 
@@ -18,7 +24,17 @@ router.post( '/', function( req, res ) {
 	
 	var newTask = new frmw.task( req.body ).save();
 	
-	res.redirect('back');
+	res.redirect( 'back' );
+	
+});
+
+router.delete( '/', function( req, res ) {
+	
+	console.log( req.body );
+	
+	frmw.db.tasks.remove( req.body.id )
+	
+	res.json( "deleted" );
 	
 });
 

@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var users = require('./routes/users');
+var tasks = require('./routes/tasks');
 
 var app = express();
 
@@ -20,7 +21,8 @@ app.use(multer({ dest: './uploads/'}))
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'views')));
 
-app.use('/users', users);
+app.use('/api/users', users);
+app.use('/api/tasks', tasks);
 
 // catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
