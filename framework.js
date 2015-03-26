@@ -5,6 +5,7 @@ var frmw = {};
 frmw.users = [];
 frmw.user = require( "./user" )( frmw );
 frmw.task = require( "./task" )( frmw );
+frmw.utils = require( "./utils" )( frmw );
 
 frmw.db = arjs( { url:"http://127.0.0.1:8529", databaseName: "framework" } );
 frmw.db.collection( "users", function( err, coll ){

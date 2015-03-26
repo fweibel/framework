@@ -2,14 +2,12 @@ var frmw = require( '../framework' );
 var express = require( 'express' );
 var router = express.Router();
 
-/* GET users listing. */
+/* GET tasks listing. */
 router.get( '/', function( req, res ) {
 	
-	frmw.db.query( "FOR u IN tasks RETURN u", function( err, cursor ) {
+	frmw.db.query( "FOR u IN tasks SORT u.timestamp ASC RETURN u", function( err, cursor ) {
 		
-		if( err ) return res.render( "error.html" );
-		
-		
+		if( err ) return res.send( "error" );
 		
 		res.json( cursor._result )
 
@@ -20,11 +18,19 @@ router.get( '/', function( req, res ) {
 router.post( '/', function( req, res ) {
 	
 	//console.log( req.files );
-	//console.log( req.body );
 	
 	var newTask = new frmw.task( req.body ).save();
 	
 	res.redirect( 'back' );
+	res.json( newTask );
+	
+});
+
+router.put( '/', function( req, res ) {
+	
+	var newTask = new frmw.task( req.body ).update();
+	
+	res.json( "put" );
 	
 });
 
